@@ -53,5 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['pulse/request_detail/(:any)'] = 'pulse/request_detail/$1';
 $route['pulse/export/(:alpha)'] = 'pulse/export/$1';
 $route['pulse/export']          = 'pulse/export';
+$route['pulse/server']         = 'pulse_server/index';
+$route['pulse/server/refresh'] = 'pulse_server/refresh';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

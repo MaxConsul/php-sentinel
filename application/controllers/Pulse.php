@@ -86,11 +86,13 @@ class Pulse extends CI_Controller {
     // ----------------------------------------------------------
     private function _get_summary()
     {
-        $since = date('Y-m-d H:i:s', strtotime('-24 hours'));
+        $since = date('Y-m-d 00:00:00');
 
-        // Total requests
+        // Total requests today
         $total_requests = $this->mdb->query(
-            "SELECT COUNT(*) AS cnt FROM metric_requests WHERE created_at >= ?",
+            "SELECT COUNT(*) AS cnt 
+            FROM metric_requests 
+            WHERE created_at BETWEEN ? AND NOW()",
             [$since]
         )->row()->cnt;
 

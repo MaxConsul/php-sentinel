@@ -12,7 +12,7 @@
     <div class="topbar">
         <div class="topbar-brand">
             <h1>
-                ⚡ PHP Sentinel
+                Sentinel
                 <span class="badge" id="status-badge">LIVE</span>
             </h1>
         </div>
@@ -26,13 +26,13 @@
             <!-- Export Dropdown -->
             <div class="dropdown-wrap" id="export-menu-wrap">
                 <button class="btn-outline-blue" onclick="toggleExportMenu()">
-                    📤 Export ▾
+                     Export ▾
                 </button>
                 <div class="dropdown-menu" id="export-menu">
-                    <a href="<?= site_url('pulse/export/all') ?>"        class="dropdown-item">📦 Export All (CSV)</a>
-                    <a href="<?= site_url('pulse/export/requests') ?>"   class="dropdown-item">📋 Requests Only</a>
-                    <a href="<?= site_url('pulse/export/queries') ?>"    class="dropdown-item">🔍 Queries Only</a>
-                    <a href="<?= site_url('pulse/export/performance') ?>" class="dropdown-item">⚡ Performance Only</a>
+                    <a href="<?= site_url('pulse/export/all') ?>"        class="dropdown-item">Export All (CSV)</a>
+                    <a href="<?= site_url('pulse/export/requests') ?>"   class="dropdown-item">Requests Only</a>
+                    <a href="<?= site_url('pulse/export/queries') ?>"    class="dropdown-item">Queries Only</a>
+                    <a href="<?= site_url('pulse/export/performance') ?>" class="dropdown-item">Performance Only</a>
                 </div>
             </div>
         </div>

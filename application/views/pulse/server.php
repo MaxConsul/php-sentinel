@@ -15,7 +15,7 @@
     <div class="topbar">
         <div class="topbar-brand">
             <h1>
-                ⚡ PHP Sentinel
+                Sentinel
                 <span class="badge" id="status-badge">LIVE</span>
             </h1>
         </div>
@@ -32,8 +32,8 @@
          Navigation Tabs
          ======================================================== -->
     <div class="pulse-tabs">
-        <a href="<?= site_url('pulse') ?>"        class="pulse-tab">📊 App Metrics</a>
-        <a href="<?= site_url('pulse/server') ?>" class="pulse-tab active">🖥️ Server Health</a>
+        <a href="<?= site_url('pulse') ?>"        class="pulse-tab">App Metrics</a>
+        <a href="<?= site_url('pulse/server') ?>" class="pulse-tab active">Server Health</a>
     </div>
 
     <?php $m = $metrics; ?>

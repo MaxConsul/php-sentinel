@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/pulse/pulse.css') ?>">
 </head>
 <body>
-
+ 
     <!-- Top Bar -->
     <div class="topbar">
         <div class="topbar-brand">

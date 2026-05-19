@@ -14,7 +14,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['pulse_allowed_ips'] = [
     '127.0.0.1',
     '::1',
-    // 'your.office.ip.here',
+    '122.54.191.90',
 ];
 
 // -- Secret token (optional extra layer) --

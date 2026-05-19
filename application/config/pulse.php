@@ -20,7 +20,7 @@ $config['pulse_allowed_ips'] = [
 // -- Secret token (optional extra layer) --
 // Access via: /pulse?token=your_secret_token
 // Leave empty '' to disable token check
-$config['pulse_token'] = 'change-this-to-a-strong-secret';
+$config['pulse_token'] = 'php-sentinel-2026';
 
 // -- Slow query threshold (ms) --
 // Queries slower than this are highlighted red

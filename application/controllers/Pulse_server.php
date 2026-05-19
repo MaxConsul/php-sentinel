@@ -471,8 +471,8 @@ class Pulse_server extends CI_Controller {
         $token       = $this->config->item('pulse_token');
         $client_ip   = $this->input->ip_address();
         $ip_allowed  = empty($allowed_ips) || in_array($client_ip, $allowed_ips);
-        $token_ok    = empty($token) || $this->input->get('token') === $token;
-        echo "<pre>"; print_r([$ip_allowed, $token_ok]); die;
+        // $token_ok    = empty($token) || $this->input->get('token') === $token;
+        $token_ok    = empty($token);
 
         if ( ! $ip_allowed || ! $token_ok) {
             show_error('Access denied.', 403);

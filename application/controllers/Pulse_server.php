@@ -14,8 +14,21 @@ class Pulse_server extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('session');
         $this->load->config('pulse');
         $this->_check_access();
+    }
+
+    private function _is_authenticated()
+    {
+        return $this->session->userdata('pulse_authenticated') === TRUE;
+    }
+
+    private function _check_access()
+    {
+        if ( ! $this->_is_authenticated()) {
+            redirect('pulse/login');
+        }
     }
 
     // ----------------------------------------------------------

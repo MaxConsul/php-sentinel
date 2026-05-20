@@ -55,5 +55,7 @@ $route['pulse/export/(:alpha)'] = 'pulse/export/$1';
 $route['pulse/export']          = 'pulse/export';
 $route['pulse/server']         = 'pulse_server/index';
 $route['pulse/server/refresh'] = 'pulse_server/refresh';
+$route['pulse/login']  = 'pulse/login';
+$route['pulse/logout'] = 'pulse/logout';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

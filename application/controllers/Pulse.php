@@ -9,7 +9,84 @@ class Pulse extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->library('session');
+        $this->load->config('pulse');
+        $this->_check_access();
         $this->mdb = $this->load->database('metrics_db', TRUE);
+    }
+
+    // ----------------------------------------------------------
+    // Auth credentials — change these!
+    // ----------------------------------------------------------
+    const PULSE_USERNAME = 'sentinel';
+    const PULSE_PASSWORD = 'Sentinel@2026';
+    const PULSE_SESSION_KEY = 'pulse_authenticated';
+
+    // ----------------------------------------------------------
+    // Login page
+    // ----------------------------------------------------------
+    public function login()
+    {
+        // Already logged in — redirect to dashboard
+        if ($this->_is_authenticated()) {
+            redirect('pulse');
+        }
+
+        $data['error']      = '';
+        $data['page_title'] = 'PHP Sentinel — Login';
+
+        // Handle form submission
+        if ($this->input->post('username')) {
+            $username = $this->input->post('username', TRUE);
+            $password = $this->input->post('password', TRUE);
+
+            if (
+                $username === self::PULSE_USERNAME &&
+                $password === self::PULSE_PASSWORD
+            ) {
+                // Set auth session
+                $this->session->set_userdata(self::PULSE_SESSION_KEY, TRUE);
+                redirect('pulse');
+            } else {
+                $data['error'] = 'Invalid username or password.';
+            }
+        }
+
+        $this->load->view('pulse/login', $data);
+    }
+
+    // ----------------------------------------------------------
+    // Logout
+    // ----------------------------------------------------------
+    public function logout()
+    {
+        $this->session->unset_userdata(self::PULSE_SESSION_KEY);
+        redirect('pulse/login');
+    }
+
+    // ----------------------------------------------------------
+    // Check if authenticated
+    // ----------------------------------------------------------
+    private function _is_authenticated()
+    {
+        return $this->session->userdata(self::PULSE_SESSION_KEY) === TRUE;
+    }
+
+    // ----------------------------------------------------------
+    // Guard — replaces old _check_access()
+    // ----------------------------------------------------------
+    private function _check_access()
+    {
+        // Always allow login/logout routes
+        $method = $this->router->fetch_method();
+        if (in_array($method, ['login', 'logout'])) {
+            return;
+        }
+
+        // Check session auth
+        if ( ! $this->_is_authenticated()) {
+            redirect('pulse/login');
+        }
     }
 
     // ----------------------------------------------------------

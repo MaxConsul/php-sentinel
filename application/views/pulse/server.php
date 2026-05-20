@@ -20,6 +20,17 @@
             </h1>
         </div>
         <div class="topbar-actions">
+            <a href="<?= site_url('pulse/logout') ?>" 
+                style="
+                    color:#ef4444; border:1px solid #ef4444;
+                    background:transparent; padding:6px 14px;
+                    border-radius:6px; font-size:.85rem;
+                    cursor:pointer; text-decoration:none;
+                    transition:all .2s;
+                "
+                onclick="return confirm('Log out of PHP Sentinel?')">
+                🔒 Logout
+            </a>
             <span class="last-updated">
                 <span class="live-dot"></span>
                 Auto-refresh 5s &nbsp;|&nbsp;

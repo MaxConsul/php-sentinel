@@ -28,6 +28,19 @@
                 <button class="btn-outline-blue" onclick="toggleExportMenu()">
                      Export ▾
                 </button>
+
+                <a href="<?= site_url('pulse/logout') ?>" 
+                    style="
+                        color:#ef4444; border:1px solid #ef4444;
+                        background:transparent; padding:6px 14px;
+                        border-radius:6px; font-size:.85rem;
+                        cursor:pointer; text-decoration:none;
+                        transition:all .2s;
+                    "
+                    onclick="return confirm('Log out of PHP Sentinel?')">
+                    🔒 Logout
+                </a>
+
                 <div class="dropdown-menu" id="export-menu">
                     <a href="<?= site_url('pulse/export/all') ?>"        class="dropdown-item">Export All (CSV)</a>
                     <a href="<?= site_url('pulse/export/requests') ?>"   class="dropdown-item">Requests Only</a>

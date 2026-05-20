@@ -277,7 +277,7 @@
                 const error  = doc.querySelector('.login-error');
 
                 if (error) {
-                    showError(error.textContent.replace('⚠️', '').trim());
+                    showError(error.textContent.replace('', '').trim());
                 } else {
                     // No error — must have redirected
                     window.location.href = '<?= site_url('pulse') ?>';
@@ -301,7 +301,7 @@
 
             const error       = document.createElement('div');
             error.className   = 'login-error';
-            error.innerHTML   = '⚠️ ' + message;
+            error.innerHTML   = ' ' + message;
 
             const form = document.getElementById('login-form');
             form.insertBefore(error, form.firstChild);

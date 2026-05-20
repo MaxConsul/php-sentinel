@@ -338,7 +338,7 @@ function renderDetail(data) {
             <div class="detail-summary-card">
                 <div class="detail-summary-label">Response</div>
                 <div class="detail-summary-value" style="color:${respColor}">
-                    ${r.response_time_ms}ms
+                    ${formatMs(r.response_time_ms)}
                 </div>
             </div>
             <div class="detail-summary-card">
@@ -360,8 +360,8 @@ function renderDetail(data) {
             <div class="detail-db-bar-header">
                 <span class="detail-db-bar-label">DB Time vs Response Time</span>
                 <span class="detail-db-bar-stats">
-                    <span style="color:${dbBarColor}; font-weight:700;">${s.total_query_ms}ms</span>
-                    of ${r.response_time_ms}ms
+                    <span style="color:${dbBarColor}; font-weight:700;">${formatMs(s.total_query_ms)}</span>
+                    of ${formatMs(r.response_time_ms)}
                     (<span style="color:${dbBarColor}">${s.db_percent}%</span> in DB)
                 </span>
             </div>
@@ -451,7 +451,7 @@ function renderDetail(data) {
                 <div class="detail-query-item">
                     <div class="detail-query-meta">
                         <span class="detail-query-num">#${i + 1}</span>
-                        <span class="detail-query-ms" style="color:${color}">${ms}ms</span>
+                        <span class="detail-query-ms" style="color:${color}">${formatMs(ms)}</span>
                     </div>
                     <div class="detail-query-bar-track">
                         <div class="detail-query-bar-fill"
@@ -489,3 +489,19 @@ function escHtml(str) {
 document.addEventListener('DOMContentLoaded', function () {
     applyFilters();
 });
+
+// ----------------------------------------------------------
+// Format milliseconds to human readable
+// ----------------------------------------------------------
+function formatMs(ms) {
+    ms = parseFloat(ms);
+
+    if (ms < 1000)  return ms.toFixed(1) + 'ms';
+    if (ms < 60000) return (ms / 1000).toFixed(1) + 's';
+
+    const seconds  = Math.floor(ms / 1000);
+    const minutes  = Math.floor(seconds / 60);
+    const leftover = seconds % 60;
+
+    return minutes + 'm ' + leftover + 's';
+}

@@ -40,10 +40,10 @@
                             </td>
                             <td>
                                 <span class="tag <?= $r['avg_ms'] > 500 ? 'red' : ($r['avg_ms'] > 200 ? 'yellow' : 'green') ?>">
-                                    <?= $r['avg_ms'] ?>ms
+                                    <?= format_ms($r['avg_ms']) ?>
                                 </span>
                             </td>
-                            <td><?= $r['max_ms'] ?>ms</td>
+                            <td><?= format_ms($r['max_ms']) ?></td>
                             <td><?= $r['avg_memory_mb'] ?>MB</td>
                             <td><?= $r['avg_queries'] ?></td>
                             <td><span class="tag gray"><?= $r['hit_count'] ?></span></td>
@@ -81,7 +81,7 @@
                             </td>
                             <td>
                                 <span class="tag <?= $r['execution_ms'] > 500 ? 'red' : ($r['execution_ms'] > 100 ? 'yellow' : 'green') ?>">
-                                    <?= $r['execution_ms'] ?>ms
+                                    <?= format_ms($r['execution_ms']) ?>
                                 </span>
                             </td>
                             <td><?= htmlspecialchars($r['controller'] . '/' . $r['method']) ?></td>
@@ -163,7 +163,7 @@
                             <?= htmlspecialchars(substr($r['query_sql'], 0, 80)) ?>
                         </td>
                         <td><span class="tag red"><?= $r['run_count'] ?>×</span></td>
-                        <td><span class="tag yellow"><?= $r['total_ms'] ?>ms</span></td>
+                        <td><span class="tag yellow"><?= format_ms($r['total_ms']) ?></span></td>
                         <td><?= htmlspecialchars($r['controller'] . '/' . $r['method']) ?></td>
                         <td class="text-muted truncate-cell">
                             <?= htmlspecialchars($r['request_uri']) ?>
@@ -204,13 +204,13 @@
                                 <?= $r['run_count'] ?>×
                             </span>
                         </td>
-                        <td><?= $r['total_ms'] ?>ms</td>
+                        <td><?= format_ms($r['total_ms']) ?></td>
                         <td>
                             <span class="tag <?= $r['avg_ms'] > 100 ? 'red' : ($r['avg_ms'] > 50 ? 'yellow' : 'green') ?>">
-                                <?= $r['avg_ms'] ?>ms
+                                <?= format_ms($r['avg_ms']) ?>
                             </span>
                         </td>
-                        <td><?= $r['max_ms'] ?>ms</td>
+                        <td><?= format_ms($r['max_ms']) ?></td>
                         <td class="text-muted" style="font-size:.78rem;">
                             <?= htmlspecialchars($r['controllers']) ?>
                         </td>

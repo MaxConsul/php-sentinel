@@ -179,16 +179,16 @@
                 <div class="chart-stat">
                     <span class="chart-stat-label">Avg</span>
                     <span class="chart-stat-value blue">
-                        <?= round(array_sum($all_avg) / count($all_avg), 1) ?>ms
+                        <?= format_ms(round(array_sum($all_avg) / count($all_avg), 1)) ?>
                     </span>
                 </div>
                 <div class="chart-stat">
                     <span class="chart-stat-label">Peak</span>
-                    <span class="chart-stat-value red"><?= max($all_max) ?>ms</span>
+                    <span class="chart-stat-value red"><?= format_ms(max($all_max)) ?></span>
                 </div>
                 <div class="chart-stat">
                     <span class="chart-stat-label">Best</span>
-                    <span class="chart-stat-value green"><?= min($all_avg) ?>ms</span>
+                    <span class="chart-stat-value green"><?= format_ms(min($all_avg)) ?></span>
                 </div>
                 <div class="chart-stat">
                     <span class="chart-stat-label">Total Requests</span>

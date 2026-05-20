@@ -15,7 +15,7 @@
     <div class="card">
         <div class="label">Avg Response Time</div>
         <div class="value <?= $s['avg_response'] > 500 ? 'red' : ($s['avg_response'] > 200 ? 'yellow' : 'green') ?>">
-            <?= $s['avg_response'] ?>ms
+            <?= format_ms($s['avg_response']) ?>
         </div>
     </div>
 

@@ -155,7 +155,7 @@
                         </td>
                         <td>
                             <span class="tag <?= $r['response_time_ms'] > 500 ? 'red' : ($r['response_time_ms'] > 200 ? 'yellow' : 'green') ?>">
-                                <?= $r['response_time_ms'] ?>ms
+                                <?= format_ms($r['response_time_ms']) ?>
                             </span>
                         </td>
                         <td>
@@ -169,7 +169,7 @@
                         <td>
                             <?php if ($r['avg_query_ms'] > 0): ?>
                                 <span class="tag <?= $r['avg_query_ms'] > 100 ? 'red' : ($r['avg_query_ms'] > 50 ? 'yellow' : 'green') ?>">
-                                    <?= $r['avg_query_ms'] ?>ms
+                                    <?= format_ms($r['avg_query_ms']) ?>
                                 </span>
                             <?php else: ?>
                                 <span class="text-muted">—</span>

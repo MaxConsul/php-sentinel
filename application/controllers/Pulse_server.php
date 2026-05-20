@@ -475,21 +475,6 @@ class Pulse_server extends CI_Controller {
         }
     }
 
-    // ----------------------------------------------------------
-    // Access control — same as Pulse.php
-    // ----------------------------------------------------------
-    private function _check_access()
-    {
-        $allowed_ips = $this->config->item('pulse_allowed_ips');
-        $token       = $this->config->item('pulse_token');
-        $client_ip   = $this->input->ip_address();
-        $ip_allowed  = empty($allowed_ips) || in_array($client_ip, $allowed_ips);
-        $token_ok    = empty($token) || $this->input->get('token') === $token;
-
-        if ( ! $ip_allowed) {
-            show_error('Access denied.', 403);
-        }
-    }
 
     // ----------------------------------------------------------
     // Helper — bytes to human readable

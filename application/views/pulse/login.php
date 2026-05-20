@@ -158,7 +158,7 @@
 
         <!-- Brand -->
         <div class="login-brand">
-            <h1>⚡ PHP Sentinel</h1>
+            <h1>Sentinel</h1>
             <p>Performance Monitoring Dashboard</p>
         </div>
 
@@ -172,7 +172,7 @@
             <!-- Error message -->
             <?php if ( ! empty($error)): ?>
                 <div class="login-error">
-                    ⚠️ <?= htmlspecialchars($error) ?>
+                    <?= htmlspecialchars($error) ?>
                 </div>
             <?php endif; ?>
 
@@ -210,7 +210,6 @@
                         <button
                             type="button"
                             class="toggle-password"
-                            onclick="togglePassword()"
                             id="toggle-btn">
                             👁
                         </button>
@@ -306,20 +305,6 @@
 
             const form = document.getElementById('login-form');
             form.insertBefore(error, form.firstChild);
-        }
-
-        // ── Toggle password visibility ──
-        function togglePassword() {
-            const input = document.getElementById('password');
-            const btn   = document.getElementById('toggle-btn');
-
-            if (input.type === 'password') {
-                input.type      = 'text';
-                btn.textContent = '🙈';
-            } else {
-                input.type      = 'password';
-                btn.textContent = '👁';
-            }
         }
 
         // ── Submit on Enter key ──
